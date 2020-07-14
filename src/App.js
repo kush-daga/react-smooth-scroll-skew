@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./App.scss";
 
 import images from "./images/images";
 
 function App() {
+  //REF
+  const app = useRef();
+  const scrollContainer = useRef();
+
   return (
-    <div className='App'>
-      <div className='scroll'>
+    <div ref={app} className="App">
+      <div ref={scrollContainer} className="scroll">
         {images.map((image, index) => (
           <>
-            <div key={index} className='img-container'>
+            <div key={index} className="img-container">
               <img src={image} alt={`people ${index}`} />
             </div>
             <h2>
-              Skew <span className='outline'>Scrolling</span>
+              Skew <span className="outline">scroll</span>
             </h2>
           </>
         ))}
